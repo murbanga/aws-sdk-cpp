@@ -76,7 +76,7 @@ namespace Aws
 
     };
 
-#ifdef __ANDROID__
+//#ifdef __ANDROID__
 #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
     template< typename T >
     bool operator ==(const Allocator< T >& lhs, const Allocator< T >& rhs)
@@ -87,7 +87,7 @@ namespace Aws
         return false;
     }
 #endif // _GLIBCXX_FULLY_DYNAMIC_STRING == 0
-#endif // __ANDROID__
+//#endif // __ANDROID__
 
 #else
     

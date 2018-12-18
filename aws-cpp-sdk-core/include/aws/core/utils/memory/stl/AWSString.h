@@ -25,7 +25,7 @@
 namespace Aws
 {
 
-#if defined(_GLIBCXX_FULLY_DYNAMIC_STRING) && _GLIBCXX_FULLY_DYNAMIC_STRING == 0 && defined(__ANDROID__)
+#if defined(_GLIBCXX_FULLY_DYNAMIC_STRING) && _GLIBCXX_FULLY_DYNAMIC_STRING == 0 //&& defined(__ANDROID__)
 
 /*
 using std::string with shared libraries is broken on android when using gnustl

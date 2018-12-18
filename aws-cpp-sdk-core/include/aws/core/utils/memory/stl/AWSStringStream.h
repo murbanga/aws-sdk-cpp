@@ -17,12 +17,17 @@
 
 #include <aws/core/Core_EXPORTS.h>
 
-#if defined(_GLIBCXX_FULLY_DYNAMIC_STRING) && _GLIBCXX_FULLY_DYNAMIC_STRING == 0 && defined(__ANDROID__)
+#if defined(__GNUC__)
+// make sure we have definition of _GLIBCXX_FULLY_DYNAMIC_STRING
+#include <bits/c++config.h>
+#endif
+
+#if defined(_GLIBCXX_FULLY_DYNAMIC_STRING) && _GLIBCXX_FULLY_DYNAMIC_STRING == 0 //&& defined(__ANDROID__)
 
 #include <aws/core/utils/memory/stl/SimpleStringStream.h>
 
 #else
-
+#pragma message("SHOULDN'T HAPPEN")
 #include <aws/core/utils/memory/stl/AWSAllocator.h>
 
 #include <sstream>
@@ -32,7 +37,7 @@
 namespace Aws
 {
 
-#if defined(_GLIBCXX_FULLY_DYNAMIC_STRING) && _GLIBCXX_FULLY_DYNAMIC_STRING == 0 && defined(__ANDROID__)
+#if defined(_GLIBCXX_FULLY_DYNAMIC_STRING) && _GLIBCXX_FULLY_DYNAMIC_STRING == 0 //&& defined(__ANDROID__)
 
 // see the large comment block in AWSString.h  for an explanation
 typedef Aws::SimpleStringStream StringStream;
